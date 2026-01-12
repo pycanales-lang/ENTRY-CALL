@@ -67,8 +67,31 @@
         border: 1px solid #e2e8f0;
     }
     .timer-title { font-size: 10px; font-weight: 800; color: #64748b; margin-bottom: 5px; text-transform: uppercase; }
-    .progress-container { background: #e2e8f0; border-radius: 10px; height: 8px; overflow: hidden; margin: 8px 0; }
-    .progress-bar { height: 100%; background: linear-gradient(90deg, var(--secondary), var(--success)); width: 0%; transition: width 1s; }
+    .progress-container { background: #e2e8f0; border-radius: 10px; height: 10px; overflow: hidden; margin: 8px 0; }
+    
+    .progress-bar { 
+        height: 100%; 
+        background: linear-gradient(90deg, var(--secondary), var(--success)); 
+        width: 0%; 
+        transition: width 1s ease-in-out; 
+    }
+
+    /* --- NUEVAS CLASES DE ALERTA --- */
+    .warning-alert {
+        background: #f59e0b !important; /* Naranja */
+    }
+
+    .critical-alert {
+        background: #ef4444 !important; /* Rojo */
+        animation: pulse-red 0.8s infinite;
+    }
+
+    @keyframes pulse-red {
+        0% { opacity: 1; }
+        50% { opacity: 0.7; }
+        100% { opacity: 1; }
+    }
+
     .countdown { display: flex; justify-content: center; gap: 15px; }
     .count-item { font-size: 18px; font-weight: 800; color: var(--primary); }
     .count-label { font-size: 9px; color: #94a3b8; display: block; text-transform: uppercase; }
@@ -172,40 +195,23 @@
         <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Vale de Super 200.000</span><span class="prize-brand">Supermercados</span></div> <div class="qty-target"><span class="qty-value">49</span><span class="qty-label">INST.</span></div> </div>
         <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span><span class="prize-brand">Bubba Original</span></div> <div class="qty-target"><span class="qty-value">48</span><span class="qty-label">INST.</span></div> </div>
         <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Mochila Tigo</span><span class="prize-brand">Branded Merch</span></div> <div class="qty-target"><span class="qty-value">47</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Waflera</span><span class="prize-brand">Hogar</span></div> <div class="qty-target"><span class="qty-value">46</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Combustible 100.000</span><span class="prize-brand">Vale de Carga</span></div> <div class="qty-target"><span class="qty-value">45</span><span class="qty-label">INST.</span></div> </div>
     </div>
 
     <div id="out-asu" class="group-content">
         <div class="prize-card"> <div class="winners-badge">4<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span><span class="prize-brand">JBL</span></div> <div class="qty-target"><span class="qty-value">20</span><span class="qty-label">INST.</span></div> </div>
         <div class="prize-card"> <div class="winners-badge">4<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Mochila Tigo</span><span class="prize-brand">Tigo</span></div> <div class="qty-target"><span class="qty-value">19</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">3<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Vale de Super 200.000</span><span class="prize-brand">Varios</span></div> <div class="qty-target"><span class="qty-value">18</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">4<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Waflera</span><span class="prize-brand">Electro</span></div> <div class="qty-target"><span class="qty-value">17</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">3<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span><span class="prize-brand">Bubba</span></div> <div class="qty-target"><span class="qty-value">16</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">4<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Combustible 100.000</span><span class="prize-brand">Carga</span></div> <div class="qty-target"><span class="qty-value">15</span><span class="qty-label">INST.</span></div> </div>
     </div>
 
     <div id="inb" class="group-content">
         <div class="prize-card"> <div class="winners-badge">1<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span><span class="prize-brand">JBL</span></div> <div class="qty-target"><span class="qty-value">48</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">1<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Mochila Tigo</span><span class="prize-brand">Merch</span></div> <div class="qty-target"><span class="qty-value">47</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Vale de Super 200.000</span><span class="prize-brand">Voucher</span></div> <div class="qty-target"><span class="qty-value">46</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span><span class="prize-brand">Original</span></div> <div class="qty-target"><span class="qty-value">45</span><span class="qty-label">INST.</span></div> </div>
     </div>
 
     <div id="out-concept" class="group-content">
         <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span><span class="prize-brand">JBL</span></div> <div class="qty-target"><span class="qty-value">29</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Vale de Super 200.000</span><span class="prize-brand">Super</span></div> <div class="qty-target"><span class="qty-value">28</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span><span class="prize-brand">Bubba</span></div> <div class="qty-target"><span class="qty-value">27</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">2<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Mochila Tigo</span><span class="prize-brand">Tigo</span></div> <div class="qty-target"><span class="qty-value">26</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">4<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Combustible 100.000</span><span class="prize-brand">Carga</span></div> <div class="qty-target"><span class="qty-value">25</span><span class="qty-label">INST.</span></div> </div>
     </div>
 
     <div id="out-porta" class="group-content">
         <div class="prize-card"> <div class="winners-badge">1<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span><span class="prize-brand">JBL</span></div> <div class="qty-target"><span class="qty-value">24</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">1<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Mochila Tigo</span><span class="prize-brand">Exclusivo</span></div> <div class="qty-target"><span class="qty-value">23</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">1<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Vale de Super 200.000</span><span class="prize-brand">Super</span></div> <div class="qty-target"><span class="qty-value">22</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">1<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Waflera</span><span class="prize-brand">Electro</span></div> <div class="qty-target"><span class="qty-value">21</span><span class="qty-label">INST.</span></div> </div>
-        <div class="prize-card"> <div class="winners-badge">1<span>Gan.</span></div> <div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span><span class="prize-brand">Bubba</span></div> <div class="qty-target"><span class="qty-value">20</span><span class="qty-label">INST.</span></div> </div>
     </div>
 
     <div class="criterios-box">
@@ -230,36 +236,67 @@
         document.querySelectorAll('.group-content').forEach(c => c.classList.remove('active'));
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(groupId).classList.add('active');
-        event.currentTarget.classList.add('active');
+        if(event) event.currentTarget.classList.add('active');
     }
 
-    const endDate = new Date('2026-01-14T23:59:59').getTime();
     const startDate = new Date('2026-01-01T00:00:00').getTime();
+    const endDate = new Date('2026-01-14T23:59:59').getTime();
 
     function updateTimer() {
         const now = new Date().getTime();
         const statusText = document.getElementById('timer-status');
         const pBar = document.getElementById('p-bar');
+        const msRestantes = endDate - now;
 
         if (now < startDate) {
             statusText.innerText = "LA COMPETENCIA INICIA EN:";
+            pBar.style.width = "0%";
             showTime(startDate - now);
         } else if (now > endDate) {
             statusText.innerText = "COMPETENCIA FINALIZADA";
             pBar.style.width = "100%";
-            pBar.style.background = "#ef4444";
+            pBar.style.background = "#475569";
+            pBar.classList.remove('critical-alert', 'warning-alert');
+            showTime(0);
         } else {
             statusText.innerText = "TIEMPO PARA EL CIERRE:";
-            const rem = endDate - now;
-            pBar.style.width = (((now - startDate) / (endDate - startDate)) * 100) + "%";
-            showTime(rem);
+            
+            // Progreso
+            const total = endDate - startDate;
+            const transcurrido = now - startDate;
+            const pct = (transcurrido / total) * 100;
+            pBar.style.width = pct + "%";
+
+            // Tiempos clave
+            const tresDias = 3 * 24 * 60 * 60 * 1000;
+            const unDia = 24 * 60 * 60 * 1000;
+
+            // Lógica de colores
+            if (msRestantes <= unDia) {
+                pBar.classList.add('critical-alert');
+                pBar.classList.remove('warning-alert');
+            } else if (msRestantes <= tresDias) {
+                pBar.classList.add('warning-alert');
+                pBar.classList.remove('critical-alert');
+                pBar.style.background = ""; // Permite que actúe la clase CSS
+            } else {
+                pBar.style.background = "linear-gradient(90deg, var(--secondary), var(--success))";
+                pBar.classList.remove('critical-alert', 'warning-alert');
+            }
+
+            showTime(msRestantes);
         }
     }
 
     function showTime(ms) {
-        document.getElementById('days').innerText = Math.floor(ms / 86400000).toString().padStart(2, '0');
-        document.getElementById('hours').innerText = Math.floor((ms % 86400000) / 3600000).toString().padStart(2, '0');
-        document.getElementById('mins').innerText = Math.floor((ms % 3600000) / 60000).toString().padStart(2, '0');
+        if (ms < 0) ms = 0;
+        const d = Math.floor(ms / 86400000);
+        const h = Math.floor((ms % 86400000) / 3600000);
+        const m = Math.floor((ms % 3600000) / 60000);
+
+        document.getElementById('days').innerText = d.toString().padStart(2, '0');
+        document.getElementById('hours').innerText = h.toString().padStart(2, '0');
+        document.getElementById('mins').innerText = m.toString().padStart(2, '0');
     }
 
     setInterval(updateTimer, 1000);
