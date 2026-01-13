@@ -22,7 +22,6 @@
             font-family: 'Segoe UI', system-ui, sans-serif;
             background: linear-gradient(135deg, var(--bg), #1e293b);
             margin: 0; padding: 10px; display: flex; justify-content: center; min-height: 100vh;
-            user-select: none;
         }
         .container {
             max-width: 480px; width: 100%; background: #fff; padding: 20px; border-radius: 28px;
@@ -40,8 +39,7 @@
             background: var(--danger); 
             width: 0%; 
             transition: width 1s ease-in-out;
-            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
-            animation: pulse-red 1.5s infinite;
+            animation: pulse-red 1.2s infinite;
         }
 
         @keyframes pulse-red {
@@ -51,12 +49,12 @@
         }
 
         .countdown { display: flex; justify-content: center; gap: 15px; }
-        .count-item { font-size: 18px; font-weight: 800; color: var(--primary); }
+        .count-item { font-size: 20px; font-weight: 800; color: var(--primary); }
         .count-label { font-size: 9px; color: #94a3b8; display: block; text-transform: uppercase; }
 
         .group-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
-        .nav-btn { background: #f1f5f9; border: 2px solid transparent; padding: 10px 4px; border-radius: 12px; font-size: 10px; font-weight: 800; color: #475569; cursor: pointer; transition: 0.3s; }
-        .nav-btn.active { background: var(--secondary); color: #fff; border-color: var(--primary); }
+        .nav-btn { background: #f1f5f9; border: 2px solid transparent; padding: 10px 4px; border-radius: 12px; font-size: 10px; font-weight: 800; color: #475569; cursor: pointer; }
+        .nav-btn.active { background: var(--secondary); color: #fff; }
         
         .group-content { display: none; }
         .group-content.active { display: block; }
@@ -66,13 +64,12 @@
         .winners-badge span { font-size: 7px; text-transform: uppercase; }
         .prize-info { flex-grow: 1; }
         .prize-name { font-weight: 700; font-size: 13px; color: #1e293b; }
-        .qty-target { text-align: center; padding-left: 10px; border-left: 1px dashed #e2e8f0; min-width: 55px; }
+        .qty-target { text-align: center; padding-left: 10px; border-left: 1px dashed #e2e8f0; min-width: 60px; }
         .qty-value { font-size: 16px; font-weight: 900; color: var(--success); }
         .qty-label { font-size: 8px; color: #94a3b8; display: block; }
 
         .criterios-box { background: #fffbeb; padding: 15px; border-radius: 16px; border: 1px solid #fef3c7; margin-top: 15px; }
         .criterios-box h2 { font-size: 13px; color: #92400e; margin: 10px 0 5px; }
-        .criterios-box h2:first-child { margin-top: 0; }
         ul { padding-left: 18px; font-size: 11px; color: #78350f; margin: 0; }
         .footer { text-align: center; font-size: 9px; color: #94a3b8; margin-top: 20px; }
     </style>
@@ -86,7 +83,7 @@
     </div>
 
     <div class="timer-section">
-        <div id="timer-status" class="timer-title">¡CIERRE DE COMPETENCIA MAÑANA!</div>
+        <div id="timer-status" class="timer-title">¡CIERRE DE COMPETENCIA PRÓXIMO!</div>
         <div class="progress-container">
             <div id="p-bar" class="progress-bar"></div>
         </div>
@@ -157,7 +154,7 @@
         <ul>
             <li>Activadas del 01 al 14 de enero.</li>
         </ul>
-        <h2>⚖️ En caso de empate:</h2>
+        <h2>⚖️ Desempate</h2>
         <ul>
             <li>Mayor cantidad de generadas 01 al 14 de enero.</li>
             <li>Mayor revenue.</li>
@@ -170,17 +167,14 @@
 
 <script>
     function showGroup(id) {
-        // Ocultar todos los contenidos
         const contents = document.querySelectorAll('.group-content');
         contents.forEach(c => c.style.display = 'none');
         
-        // Quitar clase active de botones
         const buttons = document.querySelectorAll('.nav-btn');
         buttons.forEach(b => b.classList.remove('active'));
         
-        // Mostrar el seleccionado
         document.getElementById(id).style.display = 'block';
-        event.currentTarget.classList.add('active');
+        if(event) event.currentTarget.classList.add('active');
     }
 
     function updateTimer() {
@@ -206,15 +200,11 @@
         } else {
             document.getElementById("p-bar").style.width = "100%";
             document.getElementById("timer-status").textContent = "¡COMPETENCIA FINALIZADA!";
-            document.getElementById("days").textContent = "00";
-            document.getElementById("hours").textContent = "00";
-            document.getElementById("mins").textContent = "00";
         }
     }
 
     updateTimer();
     setInterval(updateTimer, 60000);
 </script>
-
 </body>
 </html>
