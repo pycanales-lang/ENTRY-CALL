@@ -1,167 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8QS0FFX4MB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8QS0FFX4MB');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8QS0FFX4MB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8QS0FFX4MB');
+    </script>
 
-<meta charset="UTF-8">
-<title>CALL OUT HOME | Competencia 2026</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>CALL OUT HOME | Competencia 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-:root{
---primary:#1e3a8a;--secondary:#2563eb;--success:#059669;
---accent:#fbbf24;--bg:#0f172a}
-body{
-font-family:'Segoe UI',system-ui,sans-serif;
-background:linear-gradient(135deg,var(--bg),#1e293b);
-margin:0;padding:10px;display:flex;justify-content:center;min-height:100vh;
-user-select:none}
-.container{
-max-width:480px;width:100%;background:#fff;padding:20px;border-radius:28px;
-box-shadow:0 25px 50px -12px rgba(0,0,0,.5)}
-.header-main{text-align:center;margin-bottom:15px}
-.tag{background:var(--accent);color:var(--primary);padding:4px 12px;
-border-radius:10px;font-weight:800;font-size:10px}
-h1{color:var(--primary);margin:5px 0;font-size:28px;font-weight:900}
-.timer-section{background:#f8fafc;border-radius:16px;padding:12px;margin-bottom:15px;
-text-align:center;border:1px solid #e2e8f0}
-.timer-title{font-size:10px;font-weight:800;color:#64748b;margin-bottom:5px}
-.progress-container{background:#e2e8f0;border-radius:10px;height:10px;overflow:hidden}
-.progress-bar{height:100%;background:linear-gradient(90deg,var(--secondary),var(--success));
-width:0%;transition:width 1s}
-.warning-alert{background:#f59e0b!important}
-.critical-alert{background:#ef4444!important;animation:pulse-red .8s infinite}
-@keyframes pulse-red{0%{opacity:1}50%{opacity:.7}100%{opacity:1}}
-.countdown{display:flex;justify-content:center;gap:15px}
-.count-item{font-size:18px;font-weight:800;color:var(--primary)}
-.count-label{font-size:9px;color:#94a3b8;display:block}
-.group-nav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
-.nav-btn{background:#f1f5f9;border:2px solid transparent;padding:10px 4px;
-border-radius:12px;font-size:10px;font-weight:800;color:#475569;cursor:pointer}
-.nav-btn.active{background:var(--secondary);color:#fff}
-.group-content{display:none}
-.group-content.active{display:block}
-.prize-card{display:flex;align-items:center;background:#fff;border:1px solid #f1f5f9;
-border-radius:14px;padding:10px;margin-bottom:8px}
-.winners-badge{background:#eff6ff;color:var(--secondary);min-width:36px;height:36px;
-border-radius:10px;display:flex;flex-direction:column;align-items:center;
-justify-content:center;font-weight:800;margin-right:12px}
-.winners-badge span{font-size:7px}
-.prize-info{flex-grow:1}
-.prize-name{font-weight:700;font-size:13px}
-.prize-brand{font-size:10px;color:#64748b}
-.qty-target{text-align:center;padding-left:10px;border-left:1px dashed #e2e8f0}
-.qty-value{font-size:16px;font-weight:900;color:var(--success)}
-.qty-label{font-size:8px;color:#94a3b8}
-.criterios-box{background:#fffbeb;padding:15px;border-radius:16px;
-border:1px solid #fef3c7;margin-top:15px}
-.criterios-box h2{font-size:13px;color:#92400e;margin:0 0 8px}
-ul{padding-left:18px;font-size:11px;color:#78350f;margin:0}
-.footer{text-align:center;font-size:9px;color:#94a3b8;margin-top:20px}
-</style>
+    <style>
+        :root {
+            --primary: #1e3a8a; --secondary: #2563eb; --success: #059669;
+            --accent: #fbbf24; --bg: #0f172a; --danger: #ef4444;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--bg), #1e293b);
+            margin: 0; padding: 10px; display: flex; justify-content: center; min-height: 100vh;
+            user-select: none;
+        }
+        .container {
+            max-width: 480px; width: 100%; background: #fff; padding: 20px; border-radius: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,.5);
+        }
+        .header-main { text-align: center; margin-bottom: 15px; }
+        .tag { background: var(--accent); color: var(--primary); padding: 4px 12px; border-radius: 10px; font-weight: 800; font-size: 10px; }
+        h1 { color: var(--primary); margin: 5px 0; font-size: 28px; font-weight: 900; }
+        
+        /* Sección de Tiempo y Barra */
+        .timer-section { background: #f8fafc; border-radius: 16px; padding: 12px; margin-bottom: 15px; text-align: center; border: 1px solid #e2e8f0; }
+        .timer-title { font-size: 10px; font-weight: 800; color: #64748b; margin-bottom: 5px; text-transform: uppercase; }
+        .progress-container { background: #e2e8f0; border-radius: 10px; height: 12px; overflow: hidden; margin-bottom: 10px; }
+        
+        /* Color ROJO de urgencia por defecto */
+        .progress-bar { 
+            height: 100%; 
+            background: var(--danger); 
+            width: 0%; 
+            transition: width 1s ease-in-out;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+            animation: pulse-red 1.5s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+        .countdown { display: flex; justify-content: center; gap: 15px; }
+        .count-item { font-size: 18px; font-weight: 800; color: var(--danger); }
+        .count-label { font-size: 9px; color: #94a3b8; display: block; text-transform: uppercase; }
+
+        .group-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+        .nav-btn { background: #f1f5f9; border: 2px solid transparent; padding: 10px 4px; border-radius: 12px; font-size: 10px; font-weight: 800; color: #475569; cursor: pointer; }
+        .nav-btn.active { background: var(--secondary); color: #fff; }
+        .group-content { display: none; }
+        .group-content.active { display: block; }
+        .prize-card { display: flex; align-items: center; background: #fff; border: 1px solid #f1f5f9; border-radius: 14px; padding: 10px; margin-bottom: 8px; }
+        .winners-badge { background: #eff6ff; color: var(--secondary); min-width: 36px; height: 36px; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; margin-right: 12px; }
+        .winners-badge span { font-size: 7px; }
+        .prize-info { flex-grow: 1; }
+        .prize-name { font-weight: 700; font-size: 13px; }
+        .qty-target { text-align: center; padding-left: 10px; border-left: 1px dashed #e2e8f0; }
+        .qty-value { font-size: 16px; font-weight: 900; color: var(--success); }
+        .qty-label { font-size: 8px; color: #94a3b8; }
+        .criterios-box { background: #fffbeb; padding: 15px; border-radius: 16px; border: 1px solid #fef3c7; margin-top: 15px; }
+        .criterios-box h2 { font-size: 13px; color: #92400e; margin: 0 0 8px; }
+        ul { padding-left: 18px; font-size: 11px; color: #78350f; margin: 0; }
+        .footer { text-align: center; font-size: 9px; color: #94a3b8; margin-top: 20px; }
+    </style>
 </head>
 
 <body>
 <div class="container">
-<div class="header-main">
-<span class="tag">Competencia Enero 2026</span>
-<h1>ENTRY HOME</h1>
-</div>
+    <div class="header-main">
+        <span class="tag">Competencia Enero 2026</span>
+        <h1>ENTRY HOME</h1>
+    </div>
 
-<div class="timer-section">
-<div id="timer-status" class="timer-title">Cargando...</div>
-<div class="progress-container"><div id="p-bar" class="progress-bar"></div></div>
-<div class="countdown">
-<div class="count-item"><span id="days">00</span><span class="count-label">Días</span></div>
-<div class="count-item"><span id="hours">00</span><span class="count-label">Horas</span></div>
-<div class="count-item"><span id="mins">00</span><span class="count-label">Min</span></div>
-</div>
-</div>
+    <div class="timer-section">
+        <div id="timer-status" class="timer-title">¡TIEMPO LÍMITE PRÓXIMO!</div>
+        <div class="progress-container">
+            <div id="p-bar" class="progress-bar"></div>
+        </div>
+        <div class="countdown">
+            <div class="count-item"><span id="days">00</span><span class="count-label">Días</span></div>
+            <div class="count-item"><span id="hours">00</span><span class="count-label">Horas</span></div>
+            <div class="count-item"><span id="mins">00</span><span class="count-label">Min</span></div>
+        </div>
+    </div>
 
-<div class="group-nav">
-<button class="nav-btn active" onclick="showGroup('digital')">Digital HOME</button>
-<button class="nav-btn" onclick="showGroup('out-asu')">Out HOME - ASU</button>
-<button class="nav-btn" onclick="showGroup('inb')">Inb HOME</button>
-<button class="nav-btn" onclick="showGroup('out-concept')">Out Concept POS</button>
-<button class="nav-btn" style="grid-column:span 2" onclick="showGroup('out-porta')">Out PORTA - ASU</button>
-</div>
+    <div class="group-nav">
+        <button class="nav-btn active" onclick="showGroup('digital')">Digital HOME</button>
+        <button class="nav-btn" onclick="showGroup('out-asu')">Out HOME - ASU</button>
+        <button class="nav-btn" onclick="showGroup('inb')">Inb HOME</button>
+        <button class="nav-btn" onclick="showGroup('out-concept')">Out Concept POS</button>
+        <button class="nav-btn" style="grid-column:span 2" onclick="showGroup('out-porta')">Out PORTA - ASU</button>
+    </div>
 
-<!-- DIGITAL -->
-<div id="digital" class="group-content active">
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span><span class="prize-brand">Audio</span></div><div class="qty-target"><span class="qty-value">50</span><span class="qty-label">INST.</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Vale Super 200.000</span></div><div class="qty-target"><span class="qty-value">49</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span></div><div class="qty-target"><span class="qty-value">48</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Mochila Tigo</span></div><div class="qty-target"><span class="qty-value">47</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Waflera</span></div><div class="qty-target"><span class="qty-value">46</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Combustible 100.000</span></div><div class="qty-target"><span class="qty-value">45</span></div></div>
-</div>
+    <div id="digital" class="group-content active">
+        <div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span></div><div class="qty-target"><span class="qty-value">50</span><span class="qty-label">INST.</span></div></div>
+        <div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Vale Super 200.000</span></div><div class="qty-target"><span class="qty-value">49</span></div></div>
+        <div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span></div><div class="qty-target"><span class="qty-value">48</span></div></div>
+        <div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Mochila Tigo</span></div><div class="qty-target"><span class="qty-value">47</span></div></div>
+        <div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Waflera</span></div><div class="qty-target"><span class="qty-value">46</span></div></div>
+        <div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Combustible 100.000</span></div><div class="qty-target"><span class="qty-value">45</span></div></div>
+    </div>
 
-<!-- OUT ASU -->
-<div id="out-asu" class="group-content">
-<div class="prize-card"><div class="winners-badge">4<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span></div><div class="qty-target"><span class="qty-value">20</span></div></div>
-<div class="prize-card"><div class="winners-badge">4<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Mochila Tigo</span></div><div class="qty-target"><span class="qty-value">19</span></div></div>
-<div class="prize-card"><div class="winners-badge">3<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Vale Super 200.000</span></div><div class="qty-target"><span class="qty-value">18</span></div></div>
-<div class="prize-card"><div class="winners-badge">4<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Waflera</span></div><div class="qty-target"><span class="qty-value">17</span></div></div>
-<div class="prize-card"><div class="winners-badge">3<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span></div><div class="qty-target"><span class="qty-value">16</span></div></div>
-<div class="prize-card"><div class="winners-badge">4<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Combustible 100.000</span></div><div class="qty-target"><span class="qty-value">15</span></div></div>
-</div>
+    <div id="out-asu" class="group-content">
+        <div class="prize-card"><div class="winners-badge">4<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span></div><div class="qty-target"><span class="qty-value">20</span></div></div>
+        <div class="prize-card"><div class="winners-badge">4<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Mochila Tigo</span></div><div class="qty-target"><span class="qty-value">19</span></div></div>
+        <div class="prize-card"><div class="winners-badge">3<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Vale Super 200.000</span></div><div class="qty-target"><span class="qty-value">18</span></div></div>
+    </div>
 
-<!-- INB -->
-<div id="inb" class="group-content">
-<div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span></div><div class="qty-target"><span class="qty-value">48</span></div></div>
-<div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Mochila Tigo</span></div><div class="qty-target"><span class="qty-value">47</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Vale Super 200.000</span></div><div class="qty-target"><span class="qty-value">46</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span></div><div class="qty-target"><span class="qty-value">45</span></div></div>
-</div>
+    <div id="inb" class="group-content">
+        <div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span></div><div class="qty-target"><span class="qty-value">48</span></div></div>
+        <div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Vale Super 200.000</span></div><div class="qty-target"><span class="qty-value">46</span></div></div>
+    </div>
 
-<!-- OUT CONCEPT -->
-<div id="out-concept" class="group-content">
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span></div><div class="qty-target"><span class="qty-value">29</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Vale Super 200.000</span></div><div class="qty-target"><span class="qty-value">28</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span></div><div class="qty-target"><span class="qty-value">27</span></div></div>
-<div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Mochila Tigo</span></div><div class="qty-target"><span class="qty-value">26</span></div></div>
-<div class="prize-card"><div class="winners-badge">4<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Combustible 100.000</span></div><div class="qty-target"><span class="qty-value">25</span></div></div>
-</div>
+    <div id="out-concept" class="group-content">
+        <div class="prize-card"><div class="winners-badge">2<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span></div><div class="qty-target"><span class="qty-value">29</span></div></div>
+        <div class="prize-card"><div class="winners-badge">4<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Combustible 100.000</span></div><div class="qty-target"><span class="qty-value">25</span></div></div>
+    </div>
 
-<!-- OUT PORTA -->
-<div id="out-porta" class="group-content">
-<div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span></div><div class="qty-target"><span class="qty-value">24</span></div></div>
-<div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Mochila Tigo</span></div><div class="qty-target"><span class="qty-value">23</span></div></div>
-<div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Vale Super 200.000</span></div><div class="qty-target"><span class="qty-value">22</span></div></div>
-<div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Waflera</span></div><div class="qty-target"><span class="qty-value">21</span></div></div>
-<div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span></div><div class="qty-target"><span class="qty-value">20</span></div></div>
-</div>
+    <div id="out-porta" class="group-content">
+        <div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Speaker JBL GO 4</span></div><div class="qty-target"><span class="qty-value">24</span></div></div>
+        <div class="prize-card"><div class="winners-badge">1<span>Gan.</span></div><div class="prize-info"><span class="prize-name">Hoppy BUBBA Azul</span></div><div class="qty-target"><span class="qty-value">20</span></div></div>
+    </div>
 
-<div class="criterios-box">
-<h2>📌 Criterios</h2>
-<ul>
-<li>Generadas del 01 al 14 de enero</li>
-<li>Instaladas hasta el 18 de enero</li>
-<li>POSPAGO activadas del 01 al 14</li>
-</ul>
-<h2 style="margin-top:10px">⚖️ Desempate</h2>
-<ul>
-<li>Mayor cantidad de generadas</li>
-<li>Mayor revenue / mayor POSPAGO</li>
-</ul>
-</div>
+    <div class="criterios-box">
+        <h2>📌 Criterios</h2>
+        <ul>
+            <li>Generadas del 01 al 14 de enero</li>
+            <li>Instaladas hasta el 18 de enero</li>
+            <li>POSPAGO activadas del 01 al 14</li>
+        </ul>
+        <h2 style="margin-top:10px">⚖️ Desempate</h2>
+        <ul>
+            <li>Mayor cantidad de generadas</li>
+            <li>Mayor revenue / mayor POSPAGO</li>
+        </ul>
+    </div>
 
-<div class="footer">© 2026 – CANALES | USO INTERNO</div>
+    <div class="footer">© 2026 – CANALES | USO INTERNO</div>
 </div>
 
 <script>
-function showGroup(id){
-document.querySelectorAll('.group-content').forEach(c=>c.classList.remove('active'));
-document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
-document.getElementById(id).classList.add('active');
-event.currentTarget.classList.add('active');
-}
+    // Función para cambiar pestañas
+    function showGroup(id){
+        document.querySelectorAll('.group-content').forEach(c=>c.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    // Lógica del Cronómetro y Barra de Progreso
+    function updateTimer() {
+        const endDate = new Date("January 14, 2026 23:59:59").getTime();
+        const startDate = new Date("January 1, 2026 00:00:00").getTime();
+        const now = new Date().getTime();
+        
+        const totalDuration = endDate - startDate;
+        const elapsed = now - startDate;
+        const remaining = endDate - now;
+
+        if (remaining > 0) {
+            // Calcular porcentaje de la barra
+            let progress = (elapsed / totalDuration) * 100;
+            document.getElementById("p-bar").style.width = Math.min(progress, 100) + "%";
+
+            // Calcular tiempo restante
+            const d = Math.floor(remaining / (1000 * 60 * 60 * 24));
+            const h = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerText = d.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("mins").innerText = m.toString().padStart(2, '0');
+        } else {
+            document.getElementById("p-bar").style.width = "100%";
+            document.getElementById("timer-status").innerText = "¡COMPETENCIA FINALIZADA!";
+            document.querySelector(".countdown").innerHTML = "CIERRE DE CARGA";
+        }
+    }
+
+    // Ejecutar inmediatamente y luego cada minuto
+    updateTimer();
+    setInterval(updateTimer, 60000);
 </script>
 
 </body>
